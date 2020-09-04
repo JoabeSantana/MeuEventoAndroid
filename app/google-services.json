@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "683389178495",
+    "firebase_url": "https://meu-evento-android.firebaseio.com",
+    "project_id": "meu-evento-android",
+    "storage_bucket": "meu-evento-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:683389178495:android:c8413c9342d1c298a9e54a",
+        "android_client_info": {
+          "package_name": "br.com.meuevento.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "683389178495-pe32qrsv7ds5lefoc3rk3su64b4bph3n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.meuevento.android",
+            "certificate_hash": "70ccf0c8df19f02d00fd7287edeae5d4ddbfc20b"
+          }
+        },
+        {
+          "client_id": "683389178495-8fgciebkta276a1mfcrsu0i9ql58isn5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGUWfTCF0ImwpUVH7UIVWSN93VieZZzQE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "683389178495-8fgciebkta276a1mfcrsu0i9ql58isn5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
