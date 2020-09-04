@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Meu Evento</string>
+    <string name="login_button">Login</string>
+    <string name="login_sign_up">Sign Up</string>
+    <string name="login_forgot_password">Forgot password</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_confirm_password_hint">Confirm Password</string>
+</resources>
