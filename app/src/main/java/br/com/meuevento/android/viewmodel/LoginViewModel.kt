@@ -4,21 +4,25 @@ import android.app.Application
 import android.content.Context
 import androidx.lifecycle.AndroidViewModel
 import br.com.meuevento.android.interactor.LoginInteractor
+import kotlin.Exception
 
-class LoginViewModel(app : Application) : AndroidViewModel(app) {
+class LoginViewModel(val app : Application) : AndroidViewModel(app) {
 
     private val loginInteractor = LoginInteractor()
 
-    fun login(user: String, password: String){
+    fun login(user: String, password: String, callback: (error: Exception?) -> Unit){
         //TODO: REGRAS DE APRESENTAÇÃO
 
         //CHAMAR A INTERECTOR
-        try {
-            loginInteractor.login(user, password)
-        }catch (Ex: Exception){
-            //Tratar apresentação
 
-        }
+        loginInteractor.login(user, password, callback)
+    }
 
+    fun signup(user: String, password: String, repPassword: String, callback: (error: Exception?) -> Unit){
+        //TODO: REGRAS DE APRESENTAÇÃO
+
+        //CHAMAR A INTERECTOR
+
+        loginInteractor.signup(user, password, repPassword, callback)
     }
 }
