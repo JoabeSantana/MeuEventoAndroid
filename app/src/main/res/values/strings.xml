@@ -6,4 +6,13 @@
     <string name="login_email_hint" translatable="false">E-mail</string>
     <string name="login_password_hint">Senha</string>
     <string name="login_confirm_password_hint">Confirmar Senha</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="erro">erro</string>
+    <string name="title_activity_login_container">LoginContainerActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
 </resources>
