@@ -35,20 +35,4 @@ class LoginViewModel(val app : Application) : AndroidViewModel(app) {
             result.value = if (error == null) LOGIN_SUCCESS else LOGIN_ERROR
         }
     }
-
-    fun login(user: String, password: String, callback: (error: Exception?) -> Unit){
-        //TODO: REGRAS DE APRESENTAÇÃO
-
-        //CHAMAR A INTERECTOR
-
-        loginInteractor.login(user, password, callback)
-    }
-
-    fun signup(user: String, password: String, repPassword: String, callback: (error: Exception?) -> Unit){
-        //TODO: REGRAS DE APRESENTAÇÃO
-
-        //CHAMAR A INTERECTOR
-
-        loginInteractor.signup(user, password, repPassword, callback)
-    }
 }
