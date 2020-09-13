@@ -9,10 +9,11 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="erro">erro</string>
-    <string name="title_activity_login_container">LoginContainerActivity</string>
+    <string name="title_activity_login_container" translatable="false">LoginContainerActivity</string>
     <!--
     This string is used for square devices and overridden by hello_world in
     values-round/strings.xml for round devices.
     -->
     <string name="hello_world">Hello Square World!</string>
+    <string name="recover_password_button_text">Recuperar Senha</string>
 </resources>

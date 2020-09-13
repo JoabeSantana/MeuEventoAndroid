@@ -43,4 +43,19 @@ class LoginInteractor {
 
         repo.signup(user, password, callback)
     }
+
+    fun forgot(user: String, callback: (error: Exception?) -> Unit) {
+        //VALIDAR REGRA DE NEGÓCIO
+        if(TextUtils.isEmpty(user)){
+            callback(Exception("Email inválido"))
+            return
+        }
+
+        if(!Patterns.EMAIL_ADDRESS.matcher(user).matches()) {
+            callback(Exception("Senha inválida"))
+            return
+        }
+
+        repo.forgot(user, callback)
+    }
 }

@@ -31,4 +31,18 @@ class LoginRepository {
             }
         }
     }
+
+    fun forgot(user: String, callback: (error: Exception?) -> Unit) {
+        //EFETUAR CHAMADA SERVIDOR DE AUTENTICACAO
+        val auth = FirebaseAuth.getInstance()
+
+        val task = auth.sendPasswordResetEmail (user)
+        task.addOnCompleteListener { result ->
+            if(result.isSuccessful){
+                callback(null)
+            } else {
+                callback(result.exception)
+            }
+        }
+    }
 }

@@ -10,12 +10,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import br.com.meuevento.android.R
-import br.com.meuevento.android.databinding.FragmentLoginBinding
+import br.com.meuevento.android.databinding.FragmentForgetPasswordBinding
 import br.com.meuevento.android.viewmodel.LoginViewModel
 
-class LoginFragment : Fragment() {
+class ForgetPasswordFragment : Fragment() {
 
-    private lateinit var binding: FragmentLoginBinding
+    private lateinit var binding: FragmentForgetPasswordBinding
 
     private val viewModel: LoginViewModel by lazy {
         ViewModelProvider(this).get(LoginViewModel::class.java)
@@ -30,9 +30,9 @@ class LoginFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentLoginBinding.inflate(inflater, container, false)
+        binding = FragmentForgetPasswordBinding.inflate(inflater, container, false)
         binding.viewmodel = viewModel
-        binding.fragmentLogin = this
+        binding.fragmentForgetPassword = this
         binding.lifecycleOwner = this
 
         return binding.root
@@ -43,28 +43,14 @@ class LoginFragment : Fragment() {
 
         viewModel.result.observe(viewLifecycleOwner, Observer {
             if (it == viewModel.LOGIN_SUCCESS) {
-                findNavController().navigate(R.id.action_loginFragment_to_mainActivity)
-                activity?.finish()
+                findNavController().navigateUp()
             } else {
                 Toast.makeText(context, R.string.erro, Toast.LENGTH_LONG).show()
             }
         })
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        viewModel.result.removeObserver(Observer{})
-    }
-
-    fun login(view: View){
-        viewModel.login()
-    }
-
-    fun signup(view: View) {
-        findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
-    }
-
     fun forgot(view: View) {
-        findNavController().navigate(R.id.action_loginFragment_to_forgetPasswordFragment)
+        viewModel.forgot()
     }
 }

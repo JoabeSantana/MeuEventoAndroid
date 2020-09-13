@@ -30,6 +30,12 @@ class LoginViewModel(val app : Application) : AndroidViewModel(app) {
         }
     }
 
+    fun forgot() {
+        loginInteractor.forgot(email.value.toString()) { error ->
+            result.value = if (error == null) LOGIN_SUCCESS else LOGIN_ERROR
+        }
+    }
+
     fun login(user: String, password: String, callback: (error: Exception?) -> Unit){
         //TODO: REGRAS DE APRESENTAÇÃO
 
