@@ -45,7 +45,7 @@ class SignUpFragment : Fragment() {
             if (it == viewModel.LOGIN_SUCCESS) {
                 findNavController().navigateUp()
             } else {
-                Toast.makeText(context, R.string.erro, Toast.LENGTH_LONG).show()
+                Toast.makeText(context, viewModel.msgError, Toast.LENGTH_LONG).show()
             }
         })
     }

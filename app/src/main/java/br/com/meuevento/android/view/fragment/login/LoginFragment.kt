@@ -46,7 +46,7 @@ class LoginFragment : Fragment() {
                 findNavController().navigate(R.id.action_loginFragment_to_mainActivity)
                 activity?.finish()
             } else {
-                Toast.makeText(context, R.string.erro, Toast.LENGTH_LONG).show()
+                Toast.makeText(context, viewModel.msgError, Toast.LENGTH_LONG).show()
             }
         })
     }

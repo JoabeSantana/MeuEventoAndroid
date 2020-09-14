@@ -1,5 +1,8 @@
 package br.com.meuevento.android.repository
 
+import br.com.meuevento.android.exception.ForgotException
+import br.com.meuevento.android.exception.LoginException
+import br.com.meuevento.android.exception.SignupException
 import com.google.firebase.auth.FirebaseAuth
 
 class LoginRepository {
@@ -13,7 +16,7 @@ class LoginRepository {
             if(result.isSuccessful){
                 callback(null)
             } else {
-                callback(result.exception)
+                callback(LoginException(-9998, result.exception?.localizedMessage))
             }
         }
     }
@@ -27,7 +30,7 @@ class LoginRepository {
             if(result.isSuccessful){
                 callback(null)
             } else {
-                callback(result.exception)
+                callback(SignupException(-9998, result.exception?.localizedMessage))
             }
         }
     }
@@ -41,7 +44,7 @@ class LoginRepository {
             if(result.isSuccessful){
                 callback(null)
             } else {
-                callback(result.exception)
+                callback(ForgotException(-9998, result.exception?.localizedMessage))
             }
         }
     }

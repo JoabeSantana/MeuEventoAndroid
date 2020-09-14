@@ -3,12 +3,16 @@ package br.com.meuevento.android.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import br.com.meuevento.android.R
+import br.com.meuevento.android.exception.ForgotException
+import br.com.meuevento.android.exception.LoginException
+import br.com.meuevento.android.exception.SignupException
 import br.com.meuevento.android.interactor.LoginInteractor
 
 class LoginViewModel(val app : Application) : AndroidViewModel(app) {
 
-    val LOGIN_SUCCESS = "LOGIN_SUCCESS"
-    val LOGIN_ERROR = "LOGIN_ERROR"
+    val LOGIN_SUCCESS = app.getString(R.string.login_sucess_constant)
+    val LOGIN_ERROR = app.getString(R.string.login_error_constant)
 
     private val loginInteractor = LoginInteractor()
 
@@ -17,22 +21,53 @@ class LoginViewModel(val app : Application) : AndroidViewModel(app) {
     val email = MutableLiveData<String>()
 
     var result = MutableLiveData<String>()
+    var msgError = String()
 
     fun login() {
         loginInteractor.login(email.value.toString(), password.value.toString()) { error ->
-            result.value = if (error == null) LOGIN_SUCCESS else LOGIN_ERROR
+            if((error == null)){
+                result.value = LOGIN_SUCCESS
+            }else if (error is LoginException){
+                if(error.code == -9998){
+                    msgError = app.getString(R.string.login_error_msg)
+                } else {
+                    msgError = error.localizedMessage
+                }
+                result.value = LOGIN_ERROR
+            }
         }
     }
 
     fun signup() {
         loginInteractor.signup(email.value.toString(), password.value.toString(), checkPassword.value.toString()) { error ->
-            result.value = if (error == null) LOGIN_SUCCESS else LOGIN_ERROR
+
+            if((error == null)){
+                result.value = LOGIN_SUCCESS
+            }else if (error is SignupException){
+                if(error.code == -9998){
+                    msgError = app.getString(R.string.signup_error_msg)
+                } else {
+                    msgError = error.localizedMessage
+                }
+                result.value = LOGIN_ERROR
+            }
+
+
         }
     }
 
     fun forgot() {
         loginInteractor.forgot(email.value.toString()) { error ->
-            result.value = if (error == null) LOGIN_SUCCESS else LOGIN_ERROR
+            if((error == null)){
+                result.value = LOGIN_SUCCESS
+            }else if (error is ForgotException){
+                if(error.code == -9998){
+                    msgError = app.getString(R.string.forgot_error_msg)
+                } else {
+                    msgError = error.localizedMessage
+                }
+                result.value = LOGIN_ERROR
+            }
         }
     }
 }
